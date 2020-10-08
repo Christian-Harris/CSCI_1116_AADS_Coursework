@@ -1,95 +1,87 @@
-import java.util.Scanner;
+/*
+*	Created by: Christian Harris
+*	Date: 8 October 2020
+*	This program implements a state-capital game.	
+*/
 
-public class Exercise08_37 {
-  public static void main(String[] args) {
-    String[][] stateCapital = {
-      {"Alabama", "Montgomery"},
-      {"Alaska", "Juneau"},
-      {"Arizona", "Phoenix"},
-      {"Arkansas", "Little Rock"},
-      {"California", "Sacramento"},
-      {"Colorado", "Denver"},
-      {"Connecticut", "Hartford"},
-      {"Delaware", "Dover"},
-      {"Florida", "Tallahassee"},
-      {"Georgia", "Atlanta"},
-      {"Hawaii", "Honolulu"},
-      {"Idaho", "Boise"},
-      {"Illinois", "Springfield"},
-      {"Indiana", "Indianapolis"},
-      {"Iowa", "Des Moines"},
-      {"Kansas", "Topeka"},
-      {"Kentucky", "Frankfort"},
-      {"Louisiana", "Baton Rouge"},
-      {"Maine", "Augusta"},
-      {"Maryland", "Annapolis"},
-      {"Massachusettes", "Boston"},
-      {"Michigan", "Lansing"},
-      {"Minnesota", "Saint Paul"},
-      {"Mississippi", "Jackson"},
-      {"Missouri", "Jefferson City"},
-      {"Montana", "Helena"},
-      {"Nebraska", "Lincoln"},
-      {"Nevada", "Carson City"},
-      {"New Hampshire", "Concord"},
-      {"New Jersey", "Trenton"},
-      {"New York", "Albany"},
-      {"New Mexico", "Santa Fe"},
-      {"North Carolina", "Raleigh"},
-      {"North Dakota", "Bismarck"},
-      {"Ohio", "Columbus"},
-      {"Oklahoma", "Oklahoma City"},
-      {"Oregon", "Salem"},
-      {"Pennsylvania", "Harrisburg"},
-      {"Rhode Island", "Providence"},
-      {"South Carolina", "Columbia"},
-      {"South Dakota", "Pierre"},
-      {"Tennessee", "Nashville"},
-      {"Texas", "Austin"},
-      {"Utah", "Salt Lake City"},
-      {"Vermont", "Montpelier"},
-      {"Virginia", "Richmond"},
-      {"Washington", "Olympia"},
-      {"West Virginia", "Charleston"},
-      {"Wisconsin", "Madison"},
-      {"Wyoming", "Cheyenne"}
-    };
+import java.util.*;
 
-    Scanner input = new Scanner(System.in);
+public class Exercise20_3{
+	private static ArrayList<Pair> stateCapital = new ArrayList<Pair>();
+	
+	public static void main(String[] args) {
+		
+		stateCapital.add(new Pair("Alabama", "Montgomery"));
+		stateCapital.add(new Pair("Alaska", "Juneau"));
+		stateCapital.add(new Pair("Arizona", "Phoenix"));
+		stateCapital.add(new Pair("Arkansas", "Little Rock"));
+		stateCapital.add(new Pair("California", "Sacramento"));
+		stateCapital.add(new Pair("Colorado", "Denver"));
+		stateCapital.add(new Pair("Connecticut", "Hartford"));
+		stateCapital.add(new Pair("Delaware", "Dover"));
+		stateCapital.add(new Pair("Florida", "Tallahassee"));
+		stateCapital.add(new Pair("Georgia", "Atlanta"));
+		stateCapital.add(new Pair("Hawaii", "Honolulu"));
+		stateCapital.add(new Pair("Idaho", "Boise"));
+		stateCapital.add(new Pair("Illinois", "Springfield"));
+		stateCapital.add(new Pair("Indiana", "Indianapolis"));
+		stateCapital.add(new Pair("Iowa", "Des Moines"));
+		stateCapital.add(new Pair("Kansas", "Topeka"));
+		stateCapital.add(new Pair("Kentucky", "Frankfort"));
+		stateCapital.add(new Pair("Louisiana", "Baton Rouge"));
+		stateCapital.add(new Pair("Maine", "Augusta"));
+		stateCapital.add(new Pair("Maryland", "Annapolis"));
+		stateCapital.add(new Pair("Massachusettes", "Boston"));
+		stateCapital.add(new Pair("Michigan", "Lansing"));
+		stateCapital.add(new Pair("Minnesota", "Saint Paul"));
+		stateCapital.add(new Pair("Mississippi", "Jackson"));
+		stateCapital.add(new Pair("Missouri", "Jefferson City"));
+		stateCapital.add(new Pair("Montana", "Helena"));
+		stateCapital.add(new Pair("Nebraska", "Lincoln"));
+		stateCapital.add(new Pair("Nevada", "Carson City"));
+		stateCapital.add(new Pair("New Hampshire", "Concord"));
+		stateCapital.add(new Pair("New Jersey", "Trenton"));
+		stateCapital.add(new Pair("New York", "Albany"));
+		stateCapital.add(new Pair("New Mexico", "Santa Fe"));
+		stateCapital.add(new Pair("North Carolina", "Raleigh"));
+		stateCapital.add(new Pair("North Dakota", "Bismarck"));
+		stateCapital.add(new Pair("Ohio", "Columbus"));
+		stateCapital.add(new Pair("Oklahoma", "Oklahoma City"));
+		stateCapital.add(new Pair("Oregon", "Salem"));
+		stateCapital.add(new Pair("Pennsylvania", "Harrisburg"));
+		stateCapital.add(new Pair("Rhode Island", "Providence"));
+		stateCapital.add(new Pair("South Carolina", "Columbia"));
+		stateCapital.add(new Pair("South Dakota", "Pierre"));
+		stateCapital.add(new Pair("Tennessee", "Nashville"));
+		stateCapital.add(new Pair("Texas", "Austin"));
+		stateCapital.add(new Pair("Utah", "Salt Lake City"));
+		stateCapital.add(new Pair("Vermont", "Montpelier"));
+		stateCapital.add(new Pair("Virginia", "Richmond"));
+		stateCapital.add(new Pair("Washington", "Olympia"));
+		stateCapital.add(new Pair("West Virginia", "Charleston"));
+		stateCapital.add(new Pair("Wisconsin", "Madison"));
+		stateCapital.add(new Pair("Wyoming", "Cheyenne"));
+		
+		Collections.shuffle(stateCapital);
+
+		Scanner input = new Scanner(System.in);
     
-    int correctCount = 0;
+		int correctCount = 0;
 
-    for (int i = 0; i < stateCapital.length; i++) {
-      // Prompt the user with a question
-      System.out.print("What is the capital of " + stateCapital[i][0] + "? ");
-      String capital = input.nextLine().trim().toLowerCase();
+		for (int i = 0; i < stateCapital.size(); i++) {
+			// Prompt the user with a question
+			System.out.print("What is the capital of " + stateCapital.get(i).getState() + "? ");
+			String capital = input.nextLine().trim().toLowerCase();
       
-      if (capital.toLowerCase().equals(stateCapital[i][1].toLowerCase())) {
-        System.out.println("Your answer is correct");
-        correctCount++;
-      }
-      else
-        System.out.println("The correct answer should be " + stateCapital[i][1]);
-    }
+			if (capital.toLowerCase().equals(stateCapital.get(i).getCapital().toLowerCase())) {
+				System.out.println("Your answer is correct");
+				correctCount++;
+			}
+			else{
+				System.out.println("The correct answer should be " + stateCapital.get(i).getCapital());
+			}
+		}
 
-    System.out.println("The correct count is " + correctCount);
-  }
-  
-  private class Pair{
-	  private String state;
-	  private String capital;
-	  
-	  Pair(String state, String capital){
-		  this.state = state;
-		  this.capital = capital;
-	  }
-	  
-	  public String getState(){
-		  return this.state;
-	  }
-	  
-	  public String getCapital(){
-		  return this.capital;
-	  }
-  }
+		System.out.println("The correct count is " + correctCount);
+	}
 }
