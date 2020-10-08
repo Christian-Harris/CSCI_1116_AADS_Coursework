@@ -1,3 +1,9 @@
+/*
+*	Modified By: Christian Harris
+*	Date: 8 October 2020
+*	This program has been modified to utilize a HashMap.
+*/
+
 import java.util.*;
 
 public class Exercise21_09{
