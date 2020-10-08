@@ -1,3 +1,9 @@
+/*
+*	Edited By: Christian Harris.
+*	Date: 8 October 2020.
+*	This program has been modified so that when the "-" button is pressed the largest ball is always removed first.
+*/
+
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.application.Application;
@@ -15,7 +21,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
-public class MultipleBounceBall extends Application {
+public class Exercise20_09 extends Application {
   @Override // Override the start method in the Application class
   public void start(Stage primaryStage) {
     MultipleBallPane ballPane = new MultipleBallPane();
@@ -67,12 +73,18 @@ public class MultipleBounceBall extends Application {
     public void add() {
       Color color = new Color(Math.random(), 
         Math.random(), Math.random(), 0.5);
-      getChildren().add(new Ball(30, 30, 20, color)); 
+      getChildren().add(new Ball(30, 30, (int)(Math.random() * 21), color)); 
     }
     
     public void subtract() {
+	  int largestIndex = 0;
       if (getChildren().size() > 0) {
-        getChildren().remove(getChildren().size() - 1); 
+		for(int i = 1; i < getChildren().size(); i++){
+			if(((Ball)(getChildren().get(i))).getRadius() > ((Ball)(getChildren().get(largestIndex))).getRadius()){
+				largestIndex = i;
+			}
+		}			
+        getChildren().remove(largestIndex); 
       }
     }
 
