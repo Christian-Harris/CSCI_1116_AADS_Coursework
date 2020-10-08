@@ -10,7 +10,7 @@ public class Exercise24_01 {
     String[] name2 = {"Tom", "George", "Michael", "Michelle", "Daniel"};
     
     MyList<String> list1 = new MyArrayList<String>(name1);   
-    MyList<String> list2 = new MyArrayList<String>(name2);   
+    MyList<String> list2 = new MyArrayList<String>(name2);	
     System.out.println("list1:" + list1);
     System.out.println("list2:" + list2);
     list1.addAll(list2);

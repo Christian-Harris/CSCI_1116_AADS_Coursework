@@ -1,3 +1,8 @@
+/*
+*	Edited By: Christian Harris
+*	Date: 8 October 2020
+*	This interface has been modified to define the addAll, removeAll, and retainAll methods.
+*/
 public interface MyList<E> extends java.lang.Iterable {
 	/** Add a new element at the end of this list */
 	public void add(E e);
@@ -41,4 +46,16 @@ public interface MyList<E> extends java.lang.Iterable {
 
 	/** Return the number of elements in this list */
 	public int size();
+	
+	/** Adds the elements in otherList to this list.
+	* Returns true if this list changed as a result of the call */ 
+	public boolean addAll(MyList<E> otherList); 
+	
+	/** Removes all the elements in otherList from this list
+	* Returns true if this list changed as a result of the call */ 
+	public boolean removeAll(MyList<E> otherList); 
+	
+	/** Retains the elements in this list that are also in otherList 
+	* Returns true if this list changed as a result of the call */ 
+	public boolean retainAll(MyList<E> otherList); 
 }
