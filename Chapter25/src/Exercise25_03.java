@@ -9,31 +9,17 @@ import java.util.*;
 
 public class Exercise25_03 {
   public static void main(String[] args) {
-//    BST<Integer> tree = new BST<Integer>();
-//    
-//    Scanner input = new Scanner(System.in);
-//    
-//    // Prompt the user to enter 10 integers and store them in the tree
-//    System.out.print("Enter 10 numbers: ");
-//    for (int i = 0; i < 10; i++) {
-//      tree.insert(input.nextInt());
-//    }
-   
-//    tree.inorder();
     
-    BST<String> tree = new BST<String>();
-    tree.insert("George");
-    tree.insert("Michael");
-    tree.insert("Tom");
-    tree.insert("Adam");
-    tree.insert("Jones");
-    tree.insert("Peter");
-    tree.insert("John");
-    tree.insert("Daniel");
+    BST<Integer> tree = new BST<Integer>();
+    tree.insert(3);
+	tree.insert(4);
+	tree.insert(45);
+	tree.insert(21);
+	tree.insert(92);
+	tree.insert(12);
+	tree.insert(2);
 
-	tree.inorder();
-	System.out.print("\n");
-    tree.nonRecursiveInorder();
+	tree.preorder();
   }
 
   public static class BST<E extends Comparable<E>> extends AbstractTree<E> {
